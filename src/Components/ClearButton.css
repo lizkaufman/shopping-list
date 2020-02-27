@@ -1,6 +1,13 @@
 .clear-button {
   background-color: coral;
-  width: 85px;
   align-self: center;
-  font-weight: bold;
+  border-radius: 50%;
+  padding: 10px;
+  width: 30px;
+  border: 1px solid rgba(245, 245, 245, 0.568);
+}
+
+.clear-button:hover {
+  cursor: pointer;
+  background-color: rgb(155, 65, 32);
 }

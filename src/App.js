@@ -3,6 +3,9 @@ import './App.css';
 import Input from './Components/Input';
 import ListDisplay from './Components/ListDisplay';
 import ClearButton from './Components/ClearButton';
+import shoppingcart from './images/shoppingcart.svg';
+
+import shoppingcartrefresh from './images/shoppingcartrefresh.svg';
 
 document.title = 'Shopping List';
 
@@ -10,9 +13,9 @@ function App() {
   //State that holds the list data as an array (starting empty in the actual app; dummy data here)
   //Lives at App level because all the other components 'care about' the list's state
   const [currentList, changeCurrentList] = useState([
-    'bread',
-    'bananas',
-    'cheese'
+    'lapsang souchong tea',
+    'chocolate',
+    'hula hoops'
   ]);
 
   //State that manages the value of the input field:
@@ -38,6 +41,11 @@ function App() {
 
   return (
     <div className="App">
+      <img
+        src={shoppingcart}
+        alt="shopping cart icon"
+        className="shopping-cart-img"
+      />
       <h1>Shopping List</h1>
       <Input addItem={addItem} handleChange={handleChange} value={value} />
       <ListDisplay currentList={currentList} />

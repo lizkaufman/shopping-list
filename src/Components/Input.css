@@ -2,10 +2,25 @@
   background-color: coral;
   margin-left: 20px;
   font-weight: bolder;
+  height: 2em;
+  border: 1px solid rgba(245, 245, 245, 0.568);
+}
+
+.add-button:hover {
+  cursor: pointer;
+  background-color: rgb(155, 65, 32);
 }
 
 .item-input {
   border: 2px solid coral;
   text-align: center;
   height: 1.5em;
+}
+
+.shopping-cart-add {
+  background: coral;
+  border-radius: 50%;
+  width: 30px;
+  padding: 10px;
+  margin: 0;
 }
