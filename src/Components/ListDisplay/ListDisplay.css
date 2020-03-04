@@ -11,3 +11,7 @@ ul {
   border: 2px dashed coral;
   font-size: 0.9em;
 }
+
+.strikethru {
+  text-decoration: line-through;
+}

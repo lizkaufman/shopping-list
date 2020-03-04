@@ -1,6 +1,6 @@
 import React from 'react';
 import './ClearButton.css';
-import shoppingcartrefresh from '../images/shoppingcartrefresh.svg';
+import shoppingcartrefresh from './shoppingcartrefresh.svg';
 
 function ClearButton({ clearList }) {
   return (
