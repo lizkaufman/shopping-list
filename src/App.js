@@ -16,11 +16,6 @@ const demoList = [
 function App() {
   //State that holds the list data as an array (starting empty in the actual app; dummy data here)
   //Lives at App level because all the other components 'care about' the list's state
-  // const [currentList, changeCurrentList] = useState([
-  //   'lapsang souchong tea',
-  //   'chocolate',
-  //   'hula hoops'
-  // ]);
   const [currentList, changeCurrentList] = useState(demoList);
 
   //State that manages the value of the input field:
