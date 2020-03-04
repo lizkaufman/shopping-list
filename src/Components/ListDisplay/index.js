@@ -3,7 +3,7 @@ import './ListDisplay.css';
 import './ListItem';
 import ListItem from './ListItem';
 
-function ListDisplay({ currentList, toggleCompleted }) {
+function ListDisplay({ currentList, toggleCompleted, deleteItem }) {
   //Need to map over currentList and make a li for each thing in the array:
   return (
     <ul>
@@ -12,6 +12,7 @@ function ListDisplay({ currentList, toggleCompleted }) {
           name={item.name}
           completed={item.completed}
           toggleCompleted={() => toggleCompleted(i)}
+          deleteItem={() => deleteItem(i)}
           key={`${item}${i}`}
         />
       ))}

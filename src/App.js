@@ -8,15 +8,15 @@ import shoppingcart from './images/shoppingcart.svg';
 document.title = 'Shopping List';
 
 const demoList = [
-  { name: 'lapsang souchong tea', completed: false },
-  { name: 'chocolate', completed: false },
-  { name: 'hula hoops', completed: false }
+  { name: 'click to cross/uncross', completed: false },
+  { name: 'clear with button below', completed: false },
+  { name: 'add items above', completed: false }
 ];
 
 function App() {
   //State that holds the list data as an array (starting empty in the actual app; dummy data here)
   //Lives at App level because all the other components 'care about' the list's state
-  const [currentList, changeCurrentList] = useState(demoList);
+  const [currentList, setCurrentList] = useState(demoList);
 
   //State that manages the value of the input field:
   const [value, setValue] = useState('');
@@ -29,7 +29,7 @@ function App() {
   //Function to add the new item:
   function addItem() {
     //Use the ... with current list and join up new thing, taken from the value state of the input field:
-    changeCurrentList([...currentList, { name: value, completed: false }]);
+    setCurrentList([...currentList, { name: value, completed: false }]);
     //Reset the input field for the next item:
     setValue('');
   }
@@ -39,12 +39,7 @@ function App() {
     //takes in i, index of the one we want to edit
     console.log(currentList[i]); //check to make sure it's the right item
 
-    //PLAN:
-    //-change completed to false on selected item
-    //-create new copy of item
-    //-change completed to not completed
-    //-put into copy of list at correct index
-    //-set list to new list
+    //PLAN: change completed to false on selected item; create new copy of item; change completed to not completed; put into copy of list at correct index; set list to new list
 
     const newItem = {
       //here's the copy of the new item
@@ -57,12 +52,18 @@ function App() {
       newItem,
       ...currentList.slice(i + 1)
     ]; //slices everything before and after the original version of the new thing
-    changeCurrentList(newList);
+    setCurrentList(newList);
+  }
+
+  //Function to delete specific item:
+  function deleteItem(i) {
+    const newList = [...currentList.slice(0, i), ...currentList.slice(i + 1)]; //slices everything before and after the item to be deleted and makes a new array without the deleted item
+    setCurrentList(newList);
   }
 
   //Function to clear the list:
   function clearList() {
-    changeCurrentList([]);
+    setCurrentList([]);
   }
 
   return (
@@ -77,6 +78,7 @@ function App() {
       <ListDisplay
         currentList={currentList}
         toggleCompleted={toggleCompleted}
+        deleteItem={deleteItem}
       />
       <ClearButton clearList={clearList} />
     </div>
