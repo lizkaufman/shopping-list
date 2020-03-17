@@ -5,6 +5,9 @@ import ListDisplay from './Components/ListDisplay/index';
 import ClearButton from './Components/ClearButton/index';
 import shoppingcart from './images/shoppingcart.svg';
 
+import { usePersistentState } from '../src/libs/usePersistentState';
+//usePersistentState in curlies b/c not exported by default (just exported) - so need to destructure
+
 document.title = 'Shopping List';
 
 const demoList = [
@@ -16,10 +19,10 @@ const demoList = [
 function App() {
   //State that holds the list data as an array (starting empty in the actual app; dummy data here)
   //Lives at App level because all the other components 'care about' the list's state
-  const [currentList, setCurrentList] = useState(demoList);
+  const [currentList, setCurrentList] = usePersistentState([], 'currentList');
 
   //State that manages the value of the input field:
-  const [value, setValue] = useState('');
+  const [value, setValue] = usePersistentState('', 'inputValue');
 
   //Function to get the new item from the input field:
   function handleChange(event) {
