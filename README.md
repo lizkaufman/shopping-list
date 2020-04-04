@@ -7,6 +7,7 @@ This was my first full React project that I made as part of School of Code. Thro
 <br/>
 <br/>
 <br/>
+
 # *Default README from Create React App*
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
